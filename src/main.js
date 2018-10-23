@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'development') {
       initGame(Phaser);
     });
 } else {
-  import('phaserMin')
+  import('phaserFacebook')
     .then((Phaser) => {
       initGame(Phaser);
     });

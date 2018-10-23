@@ -17,8 +17,6 @@ module.exports = {
     modules: ['src', 'assets','node_modules'],
     extensions: ['.js', '.css', '.png', '.jpg', '.gif', '.jpeg', '.json'],
     alias: {
-      phaserMin$: path.resolve(__dirname, './node_modules/phaser/dist/phaser.min.js'),
-      phaserArcade$: path.resolve(__dirname, './node_modules/phaser/dist/phaser-arcade-physics.min.js'),
       phaserFacebook$: path.resolve(__dirname, './node_modules/phaser/dist/phaser-facebook-instant-games.min.js')
     }
   },
