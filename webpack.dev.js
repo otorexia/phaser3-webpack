@@ -29,7 +29,7 @@ portfinder.getPort(function (err, finalPort) {
     ],
   }));
   const server = new WebpackDevServer(compiler, {
-    https: false,
+    https: true,
     stats: {
       colors: true,
     },
