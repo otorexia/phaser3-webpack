@@ -1,0 +1,16 @@
+{
+  "instant_games": {
+    "platform_version": "RICH_GAMEPLAY",
+    "custom_update_templates": {
+      "play_turn": {
+        "example": "Edgar played their move"
+      },
+      "match_won": {
+        "example": "Edgar just won the match"
+      },
+      "match_tie": {
+        "example": "It's a tie!"
+      }
+    }
+  }
+}
