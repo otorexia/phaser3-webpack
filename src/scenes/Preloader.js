@@ -11,9 +11,6 @@ export default class Preloader extends Phaser.Scene {
   }
 
   preload() {
-    // this.facebook.showLoadProgress(this);
-    // this.facebook.once('startgame', this.startGame, this);
-
     loadAssets(this, assets);
 
     // Display loading progress
@@ -57,9 +54,4 @@ export default class Preloader extends Phaser.Scene {
   centerY() {
     return this.sys.game.config.height / 2;
   }
-
-  // startGame() {
-  //   this.scene.switch('Game');
-  // }
-
 };

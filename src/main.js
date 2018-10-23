@@ -30,7 +30,6 @@ if (process.env.NODE_ENV === 'development') {
 function initGame (Phaser) {
   extendConfig(Phaser);
   window.onload = function () {
-    // FBInstant.initializeAsync().then(function () {
     config.canvas.width = config.width;
     config.canvas.height = config.height;
     var game = new Phaser.Game(config);
@@ -38,6 +37,5 @@ function initGame (Phaser) {
     window.addEventListener('resize', () => {
       resize(game, config.width, config.height);
     }, false);
-    // })
   }
 }

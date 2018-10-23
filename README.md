@@ -20,6 +20,11 @@ basic template project for game development with Phaser 3.
 
 ## File Structure guide
 
+### Ckeckout branch
+- Master (Main)
+- FB (facebok instant)
+
+### Directory
 - 'assets/' => for external assets and spritesheet source (see `config.dev.js` for more information)
 - 'src/' => here is your working folder for actual game creation
   - 'assets/' => put all the assets in this folder to load in `assets.json`

@@ -17,10 +17,6 @@ let setup = {
   },
   plugins: [
     new CleanWebpackPlugin(['build']),
-    new CopyWebpackPlugin([
-      './config.json',
-      './fbapp-config.json',
-    ]),
     new ZipPlugin({
       filename: name+'.zip'
     })
