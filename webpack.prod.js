@@ -16,11 +16,16 @@ let setup = {
     chunkFilename: "phaser.js"
   },
   plugins: [
-    new CleanWebpackPlugin(['build']),
-    new ZipPlugin({
-      filename: name+'.zip'
-    })
+    new CleanWebpackPlugin(['build'])
   ]
+}
+
+if (config.zip) {
+  setup.plugins.push(
+    new ZipPlugin({
+      filename: `name.${config.zipExtName}`
+    })
+  )
 }
 
 if (config.imageMin) {
