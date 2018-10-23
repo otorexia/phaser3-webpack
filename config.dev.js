@@ -23,5 +23,6 @@ module.exports = {
   customPhaserBuild: {
     name: 'D:\\absolute_path\\to\\custom\\phaser\\build.js',
     anothername: 'D:\\anotehr_absolute\\path\\to\\custom\\phaser\\build.js',
-  }
+  },
+  fb_mock: true
 }

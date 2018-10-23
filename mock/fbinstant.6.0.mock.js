@@ -1,5 +1,5 @@
 
-/* 
+/*
  * Config values for the mock SDK
  */
 const MockConfig = {
@@ -18,7 +18,7 @@ var FBInstant = {
             return Utils.returnUserData('Player 1');
         },
         getPhoto: function() {
-            return Utils.returnUserData('/img/mock/profile.jpg');
+            return Utils.returnUserData('mock/img/profile.jpg');
         },
         getID: function() {
             return Utils.returnUserData(123456789);
@@ -53,7 +53,7 @@ var FBInstant = {
                             });
                     });
             });
-            
+
         },
         flushDataAsync: function(obj) {
             return new Promise(function(resolve, reject){
@@ -70,17 +70,17 @@ var FBInstant = {
                         {
                             getID: function() { return 42 },
                             getName: function() { return 'Friend 1' },
-                            getPhoto: function() { '/img/mock/friend1.png'}
+                            getPhoto: function() { 'mock/img/friend1.png'}
                         },
                         {
                             getID: function() { return 43 },
                             getName: function() { return 'Friend 2' },
-                            getPhoto: function() { '/img/mock/friend2.png'}
+                            getPhoto: function() { 'mock/img/friend2.png'}
                         },
                         {
                             getID: function() { return 44 },
                             getName: function() { return 'Friend 3' },
-                            getPhoto: function() { '/img/mock/friend3.png'}
+                            getPhoto: function() { 'mock/img/friend3.png'}
                         },
                     ];
                 } else {
@@ -110,9 +110,9 @@ var FBInstant = {
                 Utils.log('context.chooseAsync');
                 Utils.createAlert(
                     {
-                        message:'Choosing a new context', 
+                        message:'Choosing a new context',
                         cta:'Play!'
-                    }, 
+                    },
                     resolve
                 );
             });
@@ -125,7 +125,7 @@ var FBInstant = {
                     {
                         message:'Switching to a new context ('+contextId+')',
                         cta:'Play!'
-                    }, 
+                    },
                     resolve
                 );
             });
@@ -137,7 +137,7 @@ var FBInstant = {
                     {
                         message:'Switching to a conversation with player '+ playerId,
                         cta:'Play!'
-                    }, 
+                    },
                     resolve
                 );
             });
@@ -159,17 +159,17 @@ var FBInstant = {
                         {
                             getID: function() { return 42 },
                             getName: function() { return 'Friend 1' },
-                            getPhoto: function() { '/img/mock/friend1.png'}
+                            getPhoto: function() { 'mock/img/friend1.png'}
                         },
                         {
                             getID: function() { return 43 },
                             getName: function() { return 'Friend 2' },
-                            getPhoto: function() { '/img/mock/friend2.png'}
+                            getPhoto: function() { 'mock/img/friend2.png'}
                         },
                         {
                             getID: function() { return 44 },
                             getName: function() { return 'Friend 3' },
-                            getPhoto: function() { '/img/mock/friend3.png'}
+                            getPhoto: function() { 'mock/img/friend3.png'}
                         },
                     ];
                 } else {
@@ -189,7 +189,7 @@ var FBInstant = {
         return new Promise(function(resolve, reject){
             // Inject mock css
             var stylesheet = document.createElement('link');
-            stylesheet.href = 'css/mock/mock.css';
+            stylesheet.href = 'mock/mock.css';
             stylesheet.rel = 'stylesheet';
             stylesheet.type = 'text/css';
             document.head.appendChild(stylesheet);
@@ -211,9 +211,9 @@ var FBInstant = {
             Utils.log('startGameAsync', 'Showing game start dialog');
             Utils.createAlert(
                 {
-                    message:'Game has finished loading. <br /> Play now?', 
+                    message:'Game has finished loading. <br /> Play now?',
                     cta: 'Play!'
-                }, 
+                },
                 function() {
                     FBInstant.__mockState.initialized = true;
                     resolve();
@@ -234,12 +234,12 @@ var FBInstant = {
                 reject();
             }
         });
-        
+
     },
 
     getEntryPointData: function() {
         var queryString = Utils.getQueryString();
-        Utils.log('getEntryPointData', 
+        Utils.log('getEntryPointData',
             'query string: ', queryString,
             'entry point data: ',  queryString.entryPointData);
 
@@ -298,11 +298,11 @@ var FBInstant = {
                     message: message,
                     image: options.image,
                     cta: 'Close'
-                }, 
+                },
                 resolve
             );
         });
-        
+
     },
 
     switchGameAsync: function(appId) {
@@ -323,10 +323,10 @@ var FBInstant = {
 };
 
 
-/* 
+/*
  * Helper Functions
  */
-var Utils = {    
+var Utils = {
 
     createAlert: function(options, callback) {
         var alertDiv = document.createElement('div');
@@ -340,7 +340,7 @@ var Utils = {
         if (options.message) {
             var paragraph = document.createElement('p');
             paragraph.innerHTML = options.message;
-            alertDiv.appendChild(paragraph);            
+            alertDiv.appendChild(paragraph);
         }
 
         if (options.image) {
@@ -353,7 +353,7 @@ var Utils = {
         button.type = 'button';
         button.value = options.cta || 'Close';
         alertDiv.appendChild(button);
-    
+
 
         button.onclick = function() {
             document.body.removeChild(alertDiv);
@@ -364,7 +364,7 @@ var Utils = {
     },
 
     log: function() {
-        if (MockConfig.verbose) {            
+        if (MockConfig.verbose) {
             args = [];
             args.push( '[FBInstant Mock]:' );
             for( var i = 0; i < arguments.length; i++ ) {
@@ -379,8 +379,8 @@ var Utils = {
         if (location.search) location.search.substr(1).split("&").forEach(function(item) {
             var s = item.split("="),
                 k = s[0],
-                v = s[1] && decodeURIComponent(s[1]); 
-            (qd[k] = qd[k] || []).push(v) 
+                v = s[1] && decodeURIComponent(s[1]);
+            (qd[k] = qd[k] || []).push(v)
         });
         return qd;
     },

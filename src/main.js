@@ -2,8 +2,8 @@ import resize from './utils/resize';
 import * as config from './config';
 
 /* NOTE: From  here on out use require
- * eg: const plugin = require('<pluginame>')
- * or const plugin = require('<pluginame>').plugin;
+* eg: const plugin = require('<pluginame>')
+* or const plugin = require('<pluginame>').plugin;
 **/
 function extendConfig(Phaser) {
   const scenes = require('./scenes');
@@ -16,6 +16,7 @@ function extendConfig(Phaser) {
 }
 
 if (process.env.NODE_ENV === 'development') {
+  require('./../mock/fbinstant.6.0.mock');
   import('phaser')
     .then((Phaser) => {
       initGame(Phaser);
@@ -30,14 +31,14 @@ if (process.env.NODE_ENV === 'development') {
 function initGame (Phaser) {
   extendConfig(Phaser);
   window.onload = function () {
-    // FBInstant.initializeAsync().then(function () {
-    config.canvas.width = config.width;
-    config.canvas.height = config.height;
-    var game = new Phaser.Game(config);
-    resize(game, config.width, config.height);
-    window.addEventListener('resize', () => {
+    FBInstant.initializeAsync().then(function () {
+      config.canvas.width = config.width;
+      config.canvas.height = config.height;
+      var game = new Phaser.Game(config);
       resize(game, config.width, config.height);
-    }, false);
-    // })
+      window.addEventListener('resize', () => {
+        resize(game, config.width, config.height);
+      }, false);
+    })
   }
 }
