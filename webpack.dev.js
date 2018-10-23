@@ -35,7 +35,7 @@ portfinder.getPort(function (err, finalPort) {
     },
   });
   server.listen(finalPort, null, function () {
-    console.log(`Project is running at: ${colors.bold(colors.green('https://localhost:' + finalPort))}`);
-    console.log(`${colors.bold(colors.magenta('FB'))} Project is running at: ${colors.bold(colors.magenta(`https://www.facebook.com/embed/instantgames/${config.FB_appId}/player?game_url=https://localhost:${finalPort}`))}`);
+    console.log(`To mock open: ${colors.bold(colors.green('https://localhost:' + finalPort))}`);
+    console.log(`${colors.bold(colors.magenta('FB'))} For real env open: ${colors.bold(colors.magenta(`https://www.facebook.com/embed/instantgames/${config.FB_appId}/player?game_url=https://localhost:${finalPort}`))}`);
   });
 });

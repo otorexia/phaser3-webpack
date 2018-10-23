@@ -16,7 +16,7 @@ function extendConfig(Phaser) {
 }
 
 if (process.env.NODE_ENV === 'development') {
-  require('./../mock/fbinstant.6.0.mock');
+  // require('./../mock/fbinstant.6.0.mock');
   import('phaser')
     .then((Phaser) => {
       initGame(Phaser);
