@@ -5,7 +5,6 @@ const WebpackDevServer = require('webpack-dev-server');
 const common = require('./webpack.common.js');
 const colors = require('colors/safe');
 const portfinder = require('portfinder');
-const config = require('./config.json')
 
 portfinder.basePort = 4000;
 
@@ -35,6 +34,6 @@ portfinder.getPort(function (err, finalPort) {
     },
   });
   server.listen(finalPort, null, function () {
-    console.log(`Project is running at: ${colors.bold(colors.green('https://localhost:' + finalPort))}`);
+    console.log(`Project is running at: ${colors.bold(colors.green('http://localhost:' + finalPort))}`);
   });
 });
