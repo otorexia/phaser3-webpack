@@ -1,6 +1,13 @@
 # Phaser 3 template
 
-basic template project for game development with Phaser 3.
+Project development setup for Phaser 3.
+  - Asset management
+  - Auto spritesheet
+  - Code hinting
+  - custom phaser import
+  - Image optimization on build
+  - Auto zip on build
+  - Easily change setup configer with `config.dev.js`
 
 ## Highlights
 
