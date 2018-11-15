@@ -5,6 +5,7 @@ var SpritesmithPlugin = require('webpack-spritesmith');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const version = require('./package.json').version;
 const name = require('./package.json').name;
 const config = require('./config.dev');
@@ -55,6 +56,7 @@ module.exports = {
       '_DEV_': JSON.stringify(true),
       '_VERSION_': JSON.stringify(version),
     }),
+    new FaviconsWebpackPlugin('./src/assets/logo.png'),
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: name,
