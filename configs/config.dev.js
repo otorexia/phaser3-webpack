@@ -19,6 +19,22 @@ module.exports = {
       quality: '95-100'
     }
   },
+  logo: {
+    logo: './src/assets/logo.png',
+    background: '#fff',
+    icons: {
+      android: true,
+      appleIcon: true,
+      appleStartup: true,
+      coast: false,
+      favicons: true,
+      firefox: true,
+      opengraph: false,
+      twitter: false,
+      yandex: false,
+      windows: false
+    }
+  },
   includeCustomPhaser: false,
   customPhaserBuild: {
     name: 'D:\\absolute_path\\to\\custom\\phaser\\build.js',

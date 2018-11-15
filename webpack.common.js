@@ -5,10 +5,15 @@ var SpritesmithPlugin = require('webpack-spritesmith');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const version = require('./package.json').version;
 const name = require('./package.json').name;
-const config = require('./config.dev');
+const config = require('./configs/config.dev');
+
+// extend config
+config.logo.title = name;
+config.logo.emitStats = false;
+config.logo.persistentCache = true;
 
 module.exports = {
   entry: {
@@ -23,7 +28,7 @@ module.exports = {
     }
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, './build'),
     filename: '[name].js'
   },
 
@@ -56,7 +61,7 @@ module.exports = {
       '_DEV_': JSON.stringify(true),
       '_VERSION_': JSON.stringify(version),
     }),
-    new FaviconsWebpackPlugin('./src/assets/logo.png'),
+    new FaviconsWebpackPlugin(config.logo),
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: name,

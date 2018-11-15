@@ -7,8 +7,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const common = require('./webpack.common.js');
 const ZipPlugin = require('zip-webpack-plugin');
-const config = require('./config.dev');
-const name = require('./package.json').name
+const config = require('./configs/config.dev');
 
 let setup = {
   mode: 'production',

@@ -5,6 +5,7 @@ export default class Logo extends Phaser.GameObjects.Sprite {
     const x = scene.cameras.main.width / 2;
     const y = scene.cameras.main.height / 2;
 
+    this.alphaBottomLeft = 0;
     this.setPosition(x, y);
     this.setOrigin(0.5);
   }

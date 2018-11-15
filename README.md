@@ -26,6 +26,8 @@ basic template project for game development with Phaser 3.
 
 ### Directory
 - 'assets/' => for external assets and spritesheet source (see `config.dev.js` for more information)
+- configs
+  - 'config.dev.js' => for development setup options
 - 'src/' => here is your working folder for actual game creation
   - 'assets/' => put all the assets in this folder to load in `assets.json`
   - 'constructors/' => your custom constructors
@@ -36,14 +38,12 @@ basic template project for game development with Phaser 3.
   - 'config.js' => config phaser
   - 'global' => 'in development'
   - 'main.js' => phaser init
-- 'config.dev.js' => for development setup options
 - 'index.html' => no need to tuoch it! but this is your main html
 
-** for fb instant
+** fb instant (outdated)
 - config.json => for fb instant develpment
 - fbapp-config.json => for fb messanger settings
 
 ## Tips
 
-  use `config.dev.js` to modify and control project setup.
-
+  - use `config.dev.js` to modify and control project setup.
