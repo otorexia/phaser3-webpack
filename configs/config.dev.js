@@ -20,8 +20,9 @@ module.exports = {
     }
   },
   logo: {
+    make: true, // turn auto genrate icon off/on
     logo: './src/assets/logo.png',
-    background: '#fff',
+    // background: '#fff',
     icons: {
       android: true,
       appleIcon: true,

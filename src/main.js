@@ -1,10 +1,9 @@
 import resize from './utils/resize';
 import * as config from './config';
-
 /* NOTE: From  here on out use require
  * eg: const plugin = require('<pluginame>')
  * or const plugin = require('<pluginame>').plugin;
-**/
+ **/
 function extendConfig(Phaser) {
   const scenes = require('./scenes');
 
@@ -27,12 +26,17 @@ if (process.env.NODE_ENV === 'development') {
     });
 }
 
-function initGame (Phaser) {
+function initGame(Phaser) {
+  // for Global exposure. use this pattern - require("expose-loader?<libraryName>!./<location to file>");
+  require("expose-loader?Global!./global");
+  require("expose-loader?Customs!./utils/customs");
+
+  let game;
   extendConfig(Phaser);
   window.onload = function () {
     config.canvas.width = config.width;
     config.canvas.height = config.height;
-    var game = new Phaser.Game(config);
+    game = new Phaser.Game(config);
     resize(game, config.width, config.height);
     window.addEventListener('resize', () => {
       resize(game, config.width, config.height);

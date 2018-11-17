@@ -1,19 +1,14 @@
-export default function (phaser, name, sprite, frames, rate, repeat) {
-  let options = {
-    key: name,
-    frameRate: rate
+export default function (scene, key, sprite, frames, frameRate = 60, repeat = 1) {
+  var config = {
+    key,
+    frames:
+    frameRate,
+    repeat
   };
   if (frames.constructor === Array) {
-    options.frames = phaser.anims.generateFrameNumbers(sprite, {
-      start: frames[0],
-      end: frames[1]
-    })
+    config.frames = scene.anims.generateFrameNumbers(sprite, { frames })
   } else {
-    options.frames = [{
-      key: sprite,
-      frame: frames
-    }]
+
   }
-  if (repeat) options.repeat = repeat;
-  phaser.anims.create(options)
+  scene.anims.create(config);
 }

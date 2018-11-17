@@ -2,6 +2,22 @@
   "image": {
     "logo": "logo.png"
   },
-  "spritesheet": {
+  "svg": {
+  },
+  "audio": {
+    "music": {
+    }
+  },
+  "atlas": {
+  },
+  "spreadsheet": {
+  },
+  "xml": {
+  },
+
+  "": {
+    "info-see": "./utils/loadAssets",
+    "or": "",
+    "visit": "https://jwiese.eu/en/blog/2018/04/phaser-3---loading-screen--asset-organization/"
   }
 }

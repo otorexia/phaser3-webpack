@@ -20,7 +20,7 @@ module.exports = {
     game: ['./src/main.js'],
   },
   resolve: {
-    modules: ['src', 'assets','node_modules'],
+    modules: ['src', 'assets', 'node_modules'],
     extensions: ['.js', '.css', '.png', '.jpg', '.gif', '.jpeg', '.json'],
     alias: {
       phaserMin$: path.resolve(__dirname, './node_modules/phaser/dist/phaser.min.js'),
@@ -33,8 +33,7 @@ module.exports = {
   },
 
   module: {
-    rules: [
-      {
+    rules: [{
         test: [/\.vert$/, /\.frag$/],
         use: 'raw-loader',
       },
@@ -44,11 +43,18 @@ module.exports = {
         use: ['babel-loader']
       },
       {
+        test: require.resolve('./src/utils/customs'),
+        use: [{
+          loader: 'expose-loader',
+          options: 'Customs'
+        }]
+      },
+      {
         test: /\.png$/,
         use: [
           'file-loader?name=i/[hash].[ext]'
         ]
-      }
+      },
     ],
   },
   plugins: [
@@ -61,7 +67,6 @@ module.exports = {
       '_DEV_': JSON.stringify(true),
       '_VERSION_': JSON.stringify(version),
     }),
-    new FaviconsWebpackPlugin(config.logo),
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: name,
@@ -89,11 +94,17 @@ if (config.includeCustomPhaser) {
   }
 }
 
+if (config.logo.make) {
+  module.exports.plugins.push(
+    new FaviconsWebpackPlugin(config.logo),
+  );
+}
+
 if (config.spritesmeeth) {
   module.exports.plugins.push(
     new CleanWebpackPlugin(['src/assets/spritesheet']),
   );
-  for(let i = 0; i < config.spritesheetFolders.length; i++){
+  for (let i = 0; i < config.spritesheetFolders.length; i++) {
     module.exports.plugins.push(
       new SpritesmithPlugin({
         src: {

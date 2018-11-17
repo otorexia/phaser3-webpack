@@ -11,10 +11,11 @@ module.exports = {
   backgroundColor: '#000',
   physics: {
     // arcade, matter, impact
-    default: 'arcade',
-    arcade: {
-      gravity: { y: 300 },
-      debug: false,
+    default: 'impact',
+    impact: {
+      gravity: 100,
+      maxVelocity: 500,
+      debug: true,
     }
   },
   input: {
