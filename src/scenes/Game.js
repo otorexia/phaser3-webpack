@@ -11,10 +11,9 @@ export default class Game extends Phaser.Scene {
   create () {
     this.add.text(0, 0, Global.name, { fontFamily: 'Arial', fontSize: 24, color: '#00ff00' });
     this.logo = new Logo(this);
-    this.impact.world.setBounds();
   }
 
   update () {
-    // this.logo.update();
+    this.logo.update();
   }
 };
