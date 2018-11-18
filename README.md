@@ -39,7 +39,6 @@ Project development setup for Phaser 3.
   - 'config.dev.js' => for development setup options
 - 'src/' => here is your working folder for actual game creation
   - 'assets/' => put all the assets in this folder to load in `assets.json`
-  - 'constructors/' => your custom constructors
   - 'objects/' => think of it as your prefab assets
   - 'scene/' => all the game scene
   - 'utils/' => helper functions
