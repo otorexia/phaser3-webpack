@@ -30,7 +30,10 @@ portfinder.getPort(function (err, finalPort) {
       new FriendlyErrorsWebpackPlugin({
         compilationSuccessInfo: {
           messages: [`Game is running here ${colors.bold(colors.blue('http://localhost:' + finalPort))}`],
-          notes: [`For more info visit ${url}`]
+          notes: [`${colors.inverse('Project url - ' + url)}`,
+          `phaser docs - ${colors.cyan('https://photonstorm.github.io/phaser3-docs/')}`,
+          `phaser example - ${colors.rainbow('https://labs.phaser.io/')}`
+        ]
         }
       })
     ],
