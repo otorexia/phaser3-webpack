@@ -42,6 +42,7 @@ Project development setup for Phaser 3.
   - 'objects/' => think of it as your prefab assets
   - 'scene/' => all the game scene
   - 'utils/' => helper functions
+    -  customs => all your custom classes or function
   - 'assets.json' => configure this to load all the assets
   - 'config.js' => config phaser
   - 'global' => available as `Global` in any file
@@ -55,4 +56,4 @@ Project development setup for Phaser 3.
 ## Tips
 
   - use `config.dev.js` to modify and control project setup.
-  - customs => any custom object, class, funtion incuded in `index.js` is accessible in global(window) scope as `Customs`
+  - any custom object, class, funtion incuded in `src/utils/index.js` is accessible in global(window) scope as `Customs`
