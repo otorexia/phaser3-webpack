@@ -1,29 +1,31 @@
 # Phaser 3 template
 
 Project development setup for Phaser 3.
+## Highlights
+ ##
   - Asset management
   - Auto spritesheet
   - Code hinting
+  - Custom Class (global scope)
   - custom phaser import
   - Image optimization on build
   - Auto zip on build
   - Easily change setup configer with `config.dev.js`
-
-## Highlights
-
-- dev server with live-reload and auto port finder
-- simple `SHOW_ALL` style stretch mode
-- Auto spritesheet with spritesmith
-- Image optimization on build
-- streamlined assets loading
-- modular development setup
-- Facebook instant setup
+ ##
+  - dev server with live-reload and auto port finder
+  - simple `SHOW_ALL` style stretch mode
+  - Auto spritesheet with spritesmith
+  - Image optimization on build
+  - streamlined assets loading
+  - modular development setup
+  - Facebook instant setup
 
 ## How to run
 
 - Prepare: `npm install` or `yarn install`
 - Development: `npm start` or `yarn start`
 - Build: `npm run build` or `yarn run build`
+- Update Phaser: `npm run update:phaser`
 
 ## File Structure guide
 
@@ -43,7 +45,7 @@ Project development setup for Phaser 3.
   - 'utils/' => helper functions
   - 'assets.json' => configure this to load all the assets
   - 'config.js' => config phaser
-  - 'global' => 'in development'
+  - 'global' => available as `Global` in any file
   - 'main.js' => phaser init
 - 'index.html' => no need to tuoch it! but this is your main html
 
@@ -54,3 +56,4 @@ Project development setup for Phaser 3.
 ## Tips
 
   - use `config.dev.js` to modify and control project setup.
+  - customs => any custom object, class, funtion incuded in `index.js` is accessible in global(window) scope as `Customs`
