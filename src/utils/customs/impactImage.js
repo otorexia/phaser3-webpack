@@ -3,4 +3,4 @@ module.exports = class extends Phaser.Physics.Impact.Image {
     super(scene.impact.world, x, y, sprite, frame);
     scene.add.existing(this);
   }
-}
+};

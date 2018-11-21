@@ -1,7 +1,7 @@
-import assets from './../assets.json'
-import loadAssets from './../utils/loadAssets'
+import assets from '../assets.json';
+import loadAssets from '../utils/loadAssets';
 
-var BAR_HEIGHT = 10;
+const BAR_HEIGHT = 10;
 
 export default class Preloader extends Phaser.Scene {
   constructor() {
@@ -14,13 +14,12 @@ export default class Preloader extends Phaser.Scene {
     loadAssets(this, assets);
 
     // Display loading progress
-    var width = this.sys.game.config.width;
+    const { width } = this.sys.game.config;
     this.bar = this.add.graphics({
       x: this.centerX() - this.centerX(),
       y: this.centerY()
     });
-    this.bar.fillStyle(0xAEAEAE, 1)
-      .fillRect(0, -(BAR_HEIGHT / 2), width, BAR_HEIGHT);
+    this.bar.fillStyle(0xaeaeae, 1).fillRect(0, -(BAR_HEIGHT / 2), width, BAR_HEIGHT);
 
     this.load.on('progress', this.updateProgressDisplay, this);
   }
@@ -33,25 +32,27 @@ export default class Preloader extends Phaser.Scene {
       scaleY: 0,
       duration: 200,
       ease: 'EaseQuadOut',
-      onComplete: function () {
+      onComplete() {
         this.scene.switch('Game');
       },
-      callbackScope: this,
-    })
+      callbackScope: this
+    });
   }
 
   updateProgressDisplay(pct) {
-    this.bar.clear()
-      .fillStyle(0x50576B, 1)
+    this.bar
+      .clear()
+      .fillStyle(0x50576b, 1)
       .fillRect(0, -(BAR_HEIGHT / 2), this.sys.game.config.width, BAR_HEIGHT)
-      .fillStyle(0xFFFFFF, 1)
+      .fillStyle(0xffffff, 1)
       .fillRect(0, -(BAR_HEIGHT / 2), Math.round(this.sys.game.config.width * pct), BAR_HEIGHT);
   }
 
   centerX() {
     return this.sys.game.config.width / 2;
   }
+
   centerY() {
     return this.sys.game.config.height / 2;
   }
-};
+}

@@ -4,10 +4,11 @@ export default class Boot extends Phaser.Scene {
       key: 'Boot'
     });
   }
-  create () {
+
+  create() {
     // Initialize things here
 
     // Loading screen
     this.scene.switch('Preloader');
   }
-};
+}

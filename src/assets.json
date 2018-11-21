@@ -2,18 +2,13 @@
   "image": {
     "logo": "logo.png"
   },
-  "svg": {
-  },
+  "svg": {},
   "audio": {
-    "music": {
-    }
+    "music": {}
   },
-  "atlas": {
-  },
-  "spreadsheet": {
-  },
-  "xml": {
-  },
+  "atlas": {},
+  "spreadsheet": {},
+  "xml": {},
 
   "": {
     "info-see": "./utils/loadAssets",

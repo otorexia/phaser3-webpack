@@ -1,30 +1,26 @@
-'use strict';
-const resolve = require('path').resolve;
+const { resolve } = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin').default
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const common = require('./webpack.common.js');
+const ImageminPlugin = require('imagemin-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
+const common = require('./webpack.common.js');
 const config = require('./configs/config.dev');
 
-let setup = {
+const setup = {
   mode: 'production',
   output: {
-    chunkFilename: "phaser.js"
+    chunkFilename: 'phaser.js'
   },
-  plugins: [
-    new CleanWebpackPlugin(['build'])
-  ]
-}
+  plugins: [new CleanWebpackPlugin(['build'])]
+};
 
 if (config.zip) {
   setup.plugins.push(
     new ZipPlugin({
       filename: `name.${config.zipExtName}`
     })
-  )
+  );
 }
 
 if (config.imageMin) {
@@ -46,15 +42,14 @@ if (config.imageMin) {
       svgo: config.imageMinQuality.svg,
       pngquant: config.imageMinQuality.pngquant
     })
-  )
+  );
 }
 const configer = merge(common, setup);
 
 webpack(configer, (err, stats) => {
-    if (err || stats.hasErrors()) {
-        // Handle errors here
-        console.log(stats.compilation.errors);
-    }
-    // Done processing
+  if (err || stats.hasErrors()) {
+    // Handle errors here
+    console.log(stats.compilation.errors); // eslint-disable-line
+  }
+  // Done processing
 });
-

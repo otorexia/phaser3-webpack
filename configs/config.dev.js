@@ -39,8 +39,8 @@ module.exports = {
   includeCustomPhaser: false,
   customPhaserBuild: {
     name: 'D:\\absolute_path\\to\\custom\\phaser\\build.js',
-    anothername: 'D:\\anotehr_absolute\\path\\to\\custom\\phaser\\build.js',
+    anothername: 'D:\\anotehr_absolute\\path\\to\\custom\\phaser\\build.js'
   },
   zip: true,
   zipExtName: 'zip'
-}
+};

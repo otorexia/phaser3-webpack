@@ -1,5 +1,3 @@
-let global = {
+module.exports = {
   name: require('./../package.json').name
-}
-
-module.exports = global;
+};

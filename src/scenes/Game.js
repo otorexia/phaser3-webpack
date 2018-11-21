@@ -1,6 +1,4 @@
-import Logo from './../objects/logo';
-let bombs, gameOver = false;
-let score = 0;
+import Logo from '../objects/logo';
 
 export default class Game extends Phaser.Scene {
   constructor() {
@@ -8,12 +6,17 @@ export default class Game extends Phaser.Scene {
       key: 'Game'
     });
   }
-  create () {
-    this.add.text(0, 0, Global.name, { fontFamily: 'Arial', fontSize: 24, color: '#00ff00' });
+
+  create() {
+    this.add.text(0, 0, Global.name, {
+      fontFamily: 'Arial',
+      fontSize: 24,
+      color: '#00ff00'
+    });
     this.logo = new Logo(this);
   }
 
-  update () {
+  update() {
     this.logo.update();
   }
-};
+}

@@ -13,8 +13,10 @@ module.exports = {
     // arcade, matter, impact
     default: 'arcade',
     arcade: {
-      gravity: { y: 0 },
-      debug: true,
+      gravity: {
+        y: 0
+      },
+      debug: true
     }
   },
   input: {
@@ -27,11 +29,7 @@ module.exports = {
   // banner style
   banner: {
     text: '#ffffff',
-    background: [
-      '#00ff00',
-      '#00ffff',
-      '#ff0000',
-    ],
+    background: ['#00ff00', '#00ffff', '#ff0000'],
     hidePhaser: false
   },
   loader: {
@@ -39,5 +37,5 @@ module.exports = {
   },
   title: require('@/../../package.json').name,
   version: require('@/../../package.json').version,
-  url: require('@/../../package.json').url,
-}
+  url: require('@/../../package.json').url
+};

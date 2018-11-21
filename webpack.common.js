@@ -1,13 +1,12 @@
-'use strict';
 const path = require('path');
 const webpack = require('webpack');
-var SpritesmithPlugin = require('webpack-spritesmith');
+const SpritesmithPlugin = require('webpack-spritesmith');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
-const version = require('./package.json').version;
-const name = require('./package.json').name;
+const { version } = require('./package.json');
+const { name } = require('./package.json');
 const config = require('./configs/config.dev');
 
 // extend config
@@ -17,14 +16,17 @@ config.logo.persistentCache = true;
 
 module.exports = {
   entry: {
-    game: ['./src/main.js'],
+    game: ['./src/main.js']
   },
   resolve: {
     modules: ['src', 'assets', 'node_modules'],
     extensions: ['.js', '.css', '.png', '.jpg', '.gif', '.jpeg', '.json'],
     alias: {
       phaserMin$: path.resolve(__dirname, './node_modules/phaser/dist/phaser.min.js'),
-      phaserArcade$: path.resolve(__dirname, './node_modules/phaser/dist/phaser-arcade-physics.min.js'),
+      phaserArcade$: path.resolve(
+        __dirname,
+        './node_modules/phaser/dist/phaser-arcade-physics.min.js'
+      )
     }
   },
   output: {
@@ -33,9 +35,10 @@ module.exports = {
   },
 
   module: {
-    rules: [{
+    rules: [
+      {
         test: [/\.vert$/, /\.frag$/],
-        use: 'raw-loader',
+        use: 'raw-loader'
       },
       {
         test: /\.js$/,
@@ -43,67 +46,68 @@ module.exports = {
         use: ['babel-loader']
       },
       {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+      {
         test: require.resolve('./src/utils/customs'),
-        use: [{
-          loader: 'expose-loader',
-          options: 'Customs'
-        }]
+        use: [
+          {
+            loader: 'expose-loader',
+            options: 'Customs'
+          }
+        ]
       },
       {
         test: /\.png$/,
-        use: [
-          'file-loader?name=i/[hash].[ext]'
-        ]
-      },
-    ],
+        use: ['file-loader?name=i/[hash].[ext]']
+      }
+    ]
   },
   plugins: [
     new webpack.DefinePlugin({
       // Enable both canvas and WebGL for better support
-      "typeof CANVAS_RENDERER": JSON.stringify(true),
-      "typeof WEBGL_RENDERER": JSON.stringify(true),
+      'typeof CANVAS_RENDERER': JSON.stringify(true),
+      'typeof WEBGL_RENDERER': JSON.stringify(true),
 
       // Development env
-      '_DEV_': JSON.stringify(true),
-      '_VERSION_': JSON.stringify(version),
+      _DEV_: JSON.stringify(true),
+      _VERSION_: JSON.stringify(version)
     }),
     new HtmlWebpackPlugin({
       template: 'index.html',
       title: name,
-      inject: 'body',
+      inject: 'body'
     }),
-    new CopyWebpackPlugin([{
-      from: 'src/assets',
-      to: 'assets'
-    }])
+    new CopyWebpackPlugin([
+      {
+        from: 'src/assets',
+        to: 'assets'
+      }
+    ])
   ],
 
   optimization: {
     splitChunks: {
-      chunks: 'all',
-    },
-  },
-
+      chunks: 'all'
+    }
+  }
 };
 
 if (config.includeCustomPhaser) {
-  for (let c in config.customPhaserBuild) {
-    if (config.customPhaserBuild.hasOwnProperty(c)) {
-      module.exports.resolve.alias[`${c}$`] = `${config.customPhaserBuild[c]}`;
-    }
-  }
+  Object.keys(config.customPhaserBuild).forEach(key => {
+    module.exports.resolve.alias[`${key}$`] = `${config.customPhaserBuild[key]}`;
+  });
 }
 
 if (config.logo.make) {
-  module.exports.plugins.push(
-    new FaviconsWebpackPlugin(config.logo),
-  );
+  module.exports.plugins.push(new FaviconsWebpackPlugin(config.logo));
 }
 
 if (config.spritesmeeth) {
-  module.exports.plugins.push(
-    new CleanWebpackPlugin(['src/assets/spritesheet']),
-  );
+  module.exports.plugins.push(new CleanWebpackPlugin(['src/assets/spritesheet']));
   for (let i = 0; i < config.spritesheetFolders.length; i++) {
     module.exports.plugins.push(
       new SpritesmithPlugin({
@@ -112,18 +116,27 @@ if (config.spritesmeeth) {
           glob: '*.png'
         },
         target: {
-          image: path.resolve(__dirname, `src/assets/spritesheets/${config.spritesheetFolders[i]}.png`),
+          image: path.resolve(
+            __dirname,
+            `src/assets/spritesheets/${config.spritesheetFolders[i]}.png`
+          ),
           css: [
             // path.resolve(__dirname, 'src/assets/spritesheets/sprite.css'),
-            [path.resolve(__dirname, `src/assets/spritesheets/${config.spritesheetFolders[i]}.json`), {
-              format: 'json_texture'
-            }]
+            [
+              path.resolve(
+                __dirname,
+                `src/assets/spritesheets/${config.spritesheetFolders[i]}.json`
+              ),
+              {
+                format: 'json_texture'
+              }
+            ]
           ]
         },
         apiOptions: {
-          generateSpriteName: (image) => {
-            let name = image.split("\\");
-            return name[name.length - 1].replace('.png', '');
+          generateSpriteName: image => {
+            const spriteName = image.split('\\');
+            return spriteName[spriteName.length - 1].replace('.png', '');
           },
           cssImageRef: `~${config.spritesheetFolders[i]}.png`
         },

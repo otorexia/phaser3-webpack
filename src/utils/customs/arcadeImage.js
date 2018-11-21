@@ -4,4 +4,4 @@ module.exports = class extends Phaser.Physics.Arcade.Image {
     scene.add.existing(this);
     scene.physics.world.enableBody(this, 0);
   }
-}
+};

@@ -3,4 +3,4 @@ module.exports = class extends Phaser.Physics.Matter.Image {
     super(scene.matter.world, x, y, sprite, frame, opt);
     scene.add.existing(this);
   }
-}
+};
