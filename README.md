@@ -54,7 +54,7 @@ Project development setup for Phaser 3.
     - customs => all your custom classes or function
   - 'assets.json' => configure this to load all the assets
   - 'config.js' => config phaser
-  - 'global' => available as `Global` in any file
+  - 'global' => available as `Global` in all files
   - 'main.js' => phaser init
 - 'index.html' => no need to tuoch it! but this is your main html
 
