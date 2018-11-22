@@ -8,7 +8,7 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
-    this.add.text(0, 0, Global.name, {
+    this.counter = this.add.text(0, 0, Global.name, {
       fontFamily: 'Arial',
       fontSize: 24,
       color: '#00ff00'
@@ -18,5 +18,6 @@ export default class Game extends Phaser.Scene {
 
   update() {
     this.logo.update();
+    this.counter.setText(`Velocity: ${this.logo.aVelocity}`);
   }
 }

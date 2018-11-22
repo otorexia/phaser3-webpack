@@ -6,13 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const { version } = require('./package.json');
-const { name } = require('./package.json');
+const { title } = require('./package.json');
 const config = require('./configs/config.dev');
 
 // extend config
-config.logo.title = name;
+config.logo.title = title;
 config.logo.emitStats = false;
-config.logo.persistentCache = true;
+config.logo.persistentCache = false;
 
 module.exports = {
   entry: {
@@ -31,7 +31,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: '[name].js'
+    filename: `game.js`
   },
 
   module: {
@@ -78,7 +78,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: 'index.html',
-      title: name,
+      title,
       inject: 'body'
     }),
     new CopyWebpackPlugin([

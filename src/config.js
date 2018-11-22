@@ -35,7 +35,7 @@ module.exports = {
   loader: {
     path: 'assets/'
   },
-  title: require('@/../../package.json').name,
+  title: require('@/../../package.json').title,
   version: require('@/../../package.json').version,
   url: require('@/../../package.json').url
 };

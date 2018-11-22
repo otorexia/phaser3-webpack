@@ -17,6 +17,8 @@ Project development setup for Phaser 3.
 
 ##
 
+- eslint `Airbnb` with some customization, see `.eslintrc`.
+- test (mocha and chai --in-progress)
 - dev server with live-reload and auto port finder
 - simple `SHOW_ALL` style stretch mode
 - Auto spritesheet with spritesmith
@@ -37,7 +39,7 @@ Project development setup for Phaser 3.
 ### Ckeckout branch
 
 - Master (Main)
-- FB (facebok instant)
+- FB (facebok instant) (Deprecated)
 
 ### Directory
 
@@ -65,4 +67,8 @@ Project development setup for Phaser 3.
 
 - use `config.dev.js` to modify and control project setup.
 - any custom object, class, funtion incuded in `src/utils/index.js` is accessible in global(window) scope as `Customs`
+- first change package.json, title and version to reflect your project.
+- choose which phaser module to load in `src/main.js`.
 - set format on save in your editor(i.e. vscode) to auto format based on prettier.
+
+* You can remove `package-lock.json` from `.gitignore` as recomended by NPM in your game projects.

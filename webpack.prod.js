@@ -2,10 +2,11 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ImageminPlugin = require('imagemin-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const ZipPlugin = require('zip-webpack-plugin');
 const common = require('./webpack.common.js');
 const config = require('./configs/config.dev');
+const { title } = require('./package.json');
 
 const setup = {
   mode: 'production',
@@ -18,7 +19,7 @@ const setup = {
 if (config.zip) {
   setup.plugins.push(
     new ZipPlugin({
-      filename: `name.${config.zipExtName}`
+      filename: `${title}.${config.zipExtName}`
     })
   );
 }

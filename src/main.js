@@ -1,9 +1,8 @@
-/* eslint-disable global-require */
 import resize from './utils/resize';
 import * as config from './config';
 /* NOTE: From  here on out use require inside initGame or extendComfig
  * eg: const plugin = require('<pluginame>')
- * or const plugin = require('<pluginame>').plugin;
+ * or const { underPlugin } = require('<pluginame>');
  * */
 function extendConfig(Phaser) {
   const scenes = require('./scenes');
@@ -42,6 +41,9 @@ if (process.env.NODE_ENV === 'development') {
     initGame(Phaser);
   });
 } else {
+  /**
+   * load any kind of phaser build for production, including custom builds.
+   */
   import('phaserMin').then(Phaser => {
     initGame(Phaser);
   });

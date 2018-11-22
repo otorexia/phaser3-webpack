@@ -1,6 +1,7 @@
 {
   "name": "phaser3-webpack",
-  "url": "https://otorexia.github.io ♥♥♥",
+  "title": "game-name",
+  "url": "https://github.com/otorexia/phaser3-webpack ♥♥♥",
   "version": "1.1.0",
   "description": "A basic webpack based Phaser 3 template",
   "scripts": {
