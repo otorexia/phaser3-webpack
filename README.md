@@ -31,7 +31,7 @@ Project development setup for Phaser 3.
 
 - Prepare: `npm install` or `yarn install`
 - Development: `npm start` or `yarn start`
-- Build: `npm run build` or `yarn run build`
+- Build: `npm run build:web` or `yarn run build:web`
 - Update Phaser: `npm run update:phaser`
 
 ## File Structure guide
@@ -46,6 +46,7 @@ Project development setup for Phaser 3.
 - 'assets/' => for external assets and spritesheet source (see `config.dev.js` for more information)
 - configs
   - 'config.dev.js' => for development setup options
+- plugins => Place all the plugin files or build your own here.
 - 'src/' => here is your working folder for actual game creation
   - 'assets/' => put all the assets in this folder to load in `assets.json`
   - 'objects/' => think of it as your prefab assets
@@ -71,5 +72,6 @@ Project development setup for Phaser 3.
 - choose which phaser module to load in `src/main.js`.
 - set format on save in your editor(i.e. vscode) to auto format based on prettier.
 
+* No need to use full path when accessing files. `alias` are available in `webpack.common.js` and `jsconfig.json` file. plaese refer to this files for the available list or adding new ones.
 * Create additional build files by copying `webpack.prod.plugin.js` for plugins and `webpack.prod.web` for game.
 * You can remove `package-lock.json` from `.gitignore` as recomended by NPM in your game projects.
