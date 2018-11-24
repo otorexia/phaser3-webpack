@@ -36,6 +36,13 @@ module.exports = {
       windows: false
     }
   },
+  plugins: {
+    build: true,
+    sample: {
+      name: 'sample',
+      version: '0.0.0'
+    }
+  },
   includeCustomPhaser: false,
   customPhaserBuild: {
     name: 'D:\\absolute_path\\to\\custom\\phaser\\build.js',

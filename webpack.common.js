@@ -19,9 +19,13 @@ module.exports = {
     game: ['./src/main.js']
   },
   resolve: {
-    modules: ['src', 'assets', 'node_modules'],
+    modules: ['node_modules'],
     extensions: ['.js', '.css', '.png', '.jpg', '.gif', '.jpeg', '.json'],
     alias: {
+      Plugins: path.resolve(__dirname, 'plugins'),
+      Src: path.resolve(__dirname, 'src'),
+      Objects: path.resolve(__dirname, 'src/objects'),
+      Utils: path.resolve(__dirname, 'src/utils'),
       phaserMin$: path.resolve(__dirname, './node_modules/phaser/dist/phaser.min.js'),
       phaserArcade$: path.resolve(
         __dirname,
@@ -31,7 +35,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: `game.js`
+    filename: '[name].js'
   },
 
   module: {
@@ -95,6 +99,14 @@ module.exports = {
     }
   }
 };
+
+if (config.plugins.build) {
+  Object.keys(config.plugins).forEach(key => {
+    if (key !== 'build') {
+      // module.exports.entry[config.plugins[key].name] = `./plugins/${config.plugins[key].name}`;
+    }
+  });
+}
 
 if (config.includeCustomPhaser) {
   Object.keys(config.customPhaserBuild).forEach(key => {

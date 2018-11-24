@@ -1,6 +1,14 @@
 {
   "compilerOptions": {
-    "target": "ES6"
+    "target": "ES6",
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": ".",
+    "paths": {
+      "Plugins/*": ["./plugins/*"],
+      "Src/*": ["./src/*"],
+      "Objects/*": ["./src/objects/*"],
+      "Utils/*": ["./src/utils/*"],
+    }
   },
   "exclude": [
     "node_modules",

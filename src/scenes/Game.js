@@ -1,4 +1,6 @@
-import Logo from '../objects/logo';
+import sample from 'Plugins/sample';
+import Logo from 'Objects/logo';
+import G from 'Src/global';
 
 export default class Game extends Phaser.Scene {
   constructor() {
@@ -14,6 +16,7 @@ export default class Game extends Phaser.Scene {
       color: '#00ff00'
     });
     this.logo = new Logo(this);
+    sample(G.name);
   }
 
   update() {
