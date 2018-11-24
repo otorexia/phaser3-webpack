@@ -44,9 +44,9 @@ Project development setup for Phaser 3.
 ### Directory
 
 - 'assets/' => for external assets and spritesheet source (see `config.dev.js` for more information)
-- configs
+- configs/
   - 'config.dev.js' => for development setup options
-- plugins => Place all the plugin files or build your own here.
+- plugins/ => Place all the plugin files or build your own here.
 - 'src/' => here is your working folder for actual game creation
   - 'assets/' => put all the assets in this folder to load in `assets.json`
   - 'objects/' => think of it as your prefab assets
