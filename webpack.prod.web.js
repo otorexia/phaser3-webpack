@@ -8,12 +8,20 @@ const common = require('./webpack.common.js');
 const config = require('./configs/config.dev');
 const { title } = require('./package.json');
 
+const version = '0.0.0';
+const copyright = 'example name';
+
 const setup = {
   mode: 'production',
   output: {
     chunkFilename: 'phaser.js'
   },
-  plugins: [new CleanWebpackPlugin(['build'])]
+  plugins: [
+    new CleanWebpackPlugin(['build/web']),
+    new webpack.BannerPlugin({
+      banner: `${title} - ${version} © ${copyright}`
+    })
+  ]
 };
 
 if (config.zip) {

@@ -71,4 +71,5 @@ Project development setup for Phaser 3.
 - choose which phaser module to load in `src/main.js`.
 - set format on save in your editor(i.e. vscode) to auto format based on prettier.
 
+* Create additional build files by copying `webpack.prod.plugin.js` for plugins and `webpack.prod.web` for game.
 * You can remove `package-lock.json` from `.gitignore` as recomended by NPM in your game projects.

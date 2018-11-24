@@ -5,7 +5,8 @@
   "version": "1.2.0",
   "description": "A basic webpack based Phaser 3 template",
   "scripts": {
-    "build": "node webpack.prod.js",
+    "build:web": "node webpack.prod.web.js",
+    "build:plugin": "node webpack.prod.plugin.js",
     "start": "node webpack.dev.js",
     "test": "mocha",
     "update:phaser": "npm install phaser@latest --save && node ./configs/update.ts.js"
@@ -44,6 +45,7 @@
     "portfinder": "^1.0.19",
     "prettier": "^1.15.2",
     "raw-loader": "^0.5.1",
+    "unminified-webpack-plugin": "^2.0.0",
     "webpack": "^4.25.1",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4",
