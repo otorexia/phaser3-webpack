@@ -1,5 +1,7 @@
 /build/**
 /test/**
 
+/src/scenes/index.js
+
 # uncomment following line to disable eslint
 # **/*
