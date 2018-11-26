@@ -50,10 +50,13 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        enforce: 'pre',
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'eslint-loader'
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        options: {
+          fix: true
+        }
       },
       {
         test: require.resolve('./src/utils/customs'),
@@ -84,13 +87,7 @@ module.exports = {
       template: 'index.html',
       title,
       inject: 'body'
-    }),
-    new CopyWebpackPlugin([
-      {
-        from: 'src/assets',
-        to: 'assets'
-      }
-    ])
+    })
   ],
 
   optimization: {
@@ -99,6 +96,21 @@ module.exports = {
     }
   }
 };
+
+const copyFolders = [];
+for (let i = 0; i < config.autoImportFolders.length; i++) {
+  const folderName = config.autoImportFolders[i];
+  copyFolders.push({
+    from: `./assets/${folderName}`,
+    to: 'assets'
+  });
+}
+copyFolders.push({
+  from: `src/assets`,
+  to: 'assets'
+});
+
+module.exports.plugins.push(new CopyWebpackPlugin(copyFolders));
 
 if (config.plugins.build) {
   Object.keys(config.plugins).forEach(key => {
@@ -119,7 +131,8 @@ if (config.logo.make) {
 }
 
 if (config.spritesmeeth) {
-  module.exports.plugins.push(new CleanWebpackPlugin(['src/assets/spritesheet']));
+  const spritesheetsFolder = 'spritesheets';
+  module.exports.plugins.push(new CleanWebpackPlugin([`src/assets/${spritesheetsFolder}`]));
   for (let i = 0; i < config.spritesheetFolders.length; i++) {
     module.exports.plugins.push(
       new SpritesmithPlugin({
@@ -130,7 +143,7 @@ if (config.spritesmeeth) {
         target: {
           image: path.resolve(
             __dirname,
-            `src/assets/spritesheets/${config.spritesheetFolders[i]}.png`
+            `src/assets/${spritesheetsFolder}/${config.spritesheetFolders[i]}.png`
           ),
           css: [
             // path.resolve(__dirname, 'src/assets/spritesheets/sprite.css'),
