@@ -2,6 +2,7 @@ import assets from '../assets.json';
 import loadAssets from '../utils/loadAssets';
 
 const BAR_HEIGHT = 10;
+const SWITCH_SCENE_NAME = 'Game';
 
 export default class Preloader extends Phaser.Scene {
   constructor() {
@@ -33,7 +34,7 @@ export default class Preloader extends Phaser.Scene {
       duration: 200,
       ease: 'EaseQuadOut',
       onComplete() {
-        this.scene.switch('Game');
+        this.scene.switch(SWITCH_SCENE_NAME);
       },
       callbackScope: this
     });

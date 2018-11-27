@@ -13,7 +13,7 @@ const extendList = {
 
 function createTemplate(extend, name) {
   if (!extendList[extend]) {
-    console.log(`${colors.bold(colors.yellow("extend dosn't exist, please add or fix it"))}`); // eslint-disable-line
+    console.log(`${colors.bold(colors.yellow("extend name dosn't exist, please add or fix it"))}`); // eslint-disable-line
     return null;
   }
   return `export default class ${name} extends ${extendList[extend]} {

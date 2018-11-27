@@ -81,6 +81,12 @@ Project development setup for Phaser 3.
 there are number of option available in ./cli.js
 you can extend it's functionality as you want.
 
+For help
+
+```node
+node cli help
+```
+
 To create scene
 
 ```node
